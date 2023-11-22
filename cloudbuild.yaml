@@ -22,3 +22,5 @@ steps:
   env:
     - 'GOOGLE_CLOUD_KEYFILE_JSON=./scegkey.json'
 
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['components', 'update']
