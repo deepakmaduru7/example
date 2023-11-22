@@ -18,7 +18,7 @@ steps:
   args:
     - 'app'
     - 'deploy'
-    - 'app.yaml'  # Path to your App Engine configuration file
+    - 'main.tf'  # Path to your App Engine configuration file
   env:
     - 'GOOGLE_CLOUD_KEYFILE_JSON=./scegkey.json'
 
