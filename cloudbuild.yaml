@@ -1,11 +1,17 @@
 steps:
-# Build the Docker image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/advance-wavelet-398416/image1', '.']
+# Install Terraform
+- name: 'hashicorp/terraform'
+  args:
+    - 'init'
+    - '-backend=false'
 
-# Push the Docker image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/advance-wavelet-398416/image1']
+# Apply Terraform configuration
+- name: 'hashicorp/terraform'
+  args:
+    - 'apply'
+    - '-auto-approve'
+  env:
+    - 'GOOGLE_CLOUD_KEYFILE_JSON=./scegkey.json'
 
 # Deploy the application to App Engine Flexible
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -13,3 +19,6 @@ steps:
     - 'app'
     - 'deploy'
     - 'app.yaml'  # Path to your App Engine configuration file
+  env:
+    - 'GOOGLE_CLOUD_KEYFILE_JSON=./scegkey.json'
+
