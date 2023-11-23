@@ -88,8 +88,11 @@ resource "google_app_engine_flexible_app_version" "appengine_flexible_automatic_
 
 deployment {
 
-    zip {
-      source_url = "https://storage.googleapis.com/{name_bucket-1}/{test1}"
+    dynamic "zip" {
+      for_each = var.zip[*]
+      content {
+        source_url  = zip.value.source_url
+      }
     }
 
     dynamic "files" {
@@ -135,6 +138,6 @@ dynamic "endpoints_api_service" {
       target_utilization = 0.5
     }
   }
-
+  noop_on_destroy = var.noop_on_destroy
   service_account = "advance-wavelet-398416@appspot.gserviceaccount.com"
 }
