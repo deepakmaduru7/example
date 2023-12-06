@@ -1,12 +1,11 @@
-runtime: python27
+runtime: python
 api_version: 1
-threadsafe: true
+
 
 handlers:
 - url: /
-  static_files: www/index.html
-  upload: www/index.html
+  static_files: RedLotus/index.html
+  upload: RedLotus/index.html
 
-- url: /(.*)
-  static_files: www/\1
-  upload: www/(.*)
+- url: /
+  static_dir: RedLotus
