@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Hahmlet', serif;
+}
+header{
+
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(lily.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+ul{
+    list-style-type: none;
+}
+ul li{
+    display: inline-block;
+    margin-top: 10px;
+}
+ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 6px 12px;
+    border: 2px rgba(22, 17, 17, 0.842) solid transparent;
+    transition-duration: 0.8s;
+}
+ul li a:hover{
+    background-color: rgba(65, 180, 146, 0.219);
+}
+ul li.active a{
+    background-color: rgba(65, 180, 146, 0.219);
+}
+.logo img{
+    float: right;
+    height: 50px;
+    width: auto;
+    margin-top: 5px;
+}
+.main{
+    max-width: 1500px;
+    margin: auto;
+}
+.title{
+    position: absolute;
+    top: 45%;
+    left: 40%;
+}
+.title h1{
+    color: rgb(235, 223, 223);
+}
