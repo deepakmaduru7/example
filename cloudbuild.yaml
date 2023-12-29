@@ -11,7 +11,7 @@ steps:
     - 'apply'
     - '-auto-approve'
   env:
-    - 'GOOGLE_CLOUD_KEYFILE_JSON=./scegkey.json'
+    - 'GOOGLE_CLOUD_KEYFILE_JSON=./key.json'
 
 # Deploy the application to App Engine Flexible
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -20,7 +20,7 @@ steps:
     - 'deploy'
     - 'main.tf'  # Path to your App Engine configuration file
   env:
-    - 'GOOGLE_CLOUD_KEYFILE_JSON=./scegkey.json'
+    - 'GOOGLE_CLOUD_KEYFILE_JSON=./key.json'
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['components', 'update']
